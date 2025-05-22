@@ -92,8 +92,10 @@ while current_date <= end_date:
                     if ump.get('officialType', '').lower() in ['home plate', 'hp', 'home']:
                         umpire = ump.get('official', {}).get('fullName', '')
                         break
+                game_id = game.get('gamePk')
 
                 row = {
+                    'game_id': game_id,
                     'date': date_str,
                     'home_team': home_team,
                     'away_team': away_team,
