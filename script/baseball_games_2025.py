@@ -123,3 +123,5 @@ while current_date <= end_date:
 df_all = pd.DataFrame(all_games)
 df_all.to_csv("./data/2025/mlb_games_2025_enriched.csv", index=False)
 print("✅ Datos enriquecidos guardados exitosamente.")
+
+
