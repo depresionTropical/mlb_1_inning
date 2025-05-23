@@ -4,8 +4,8 @@ import requests
 from datetime import datetime, timedelta
 
 # DESCARGAR JUEGOS DEL DÍA DESDE LA API
-start_date = datetime(2025, 5, 18)
-end_date = datetime(2025, 5, 22)
+start_date = datetime(2025, 5, 23)
+end_date = datetime(2025, 5, 23)
 delta = timedelta(days=1)
 
 current_date=start_date
