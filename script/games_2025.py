@@ -4,8 +4,8 @@ import requests
 from datetime import datetime, timedelta
 
 # DESCARGAR JUEGOS DEL DÍA DESDE LA API
-start_date = datetime(2025, 5, 23)
-end_date = datetime(2025, 5, 23)
+start_date = datetime(2025, 5, 24)
+end_date = datetime(2025, 5, 24)
 delta = timedelta(days=1)
 
 current_date=start_date
@@ -13,7 +13,6 @@ current_date=start_date
 while current_date <= end_date:
   print(current_date)
   date_str = current_date.strftime('%Y-%m-%d')
-
   url = f"https://statsapi.mlb.com/api/v1/schedule?sportId=1&date={date_str}&hydrate=probablePitcher,officials,venue"
   response = requests.get(url)
   data = response.json()
@@ -221,7 +220,7 @@ while current_date <= end_date:
     umpire_max = final_df["home_plate_umpire_inning1_freq"].max()
     final_df["umpire_inning1_scaled"] = (final_df["home_plate_umpire_inning1_freq"] - umpire_min) / (umpire_max - umpire_min)
 
-    final_df.to_csv(f"data/2025/{current_date.strftime('%Y_%m_%d')}_game_.csv", index=False)
+    final_df.to_csv(f"data/2025/{current_date.strftime('%Y_%m_%d')}_game.csv", index=False)
   except Exception as e:
     print(f"Error procesando el {date_str}: {e}")
   current_date += delta
